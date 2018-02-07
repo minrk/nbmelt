@@ -24,6 +24,14 @@ class bdist_egg_disabled(bdist_egg):
                  " Use `pip install .` to install from source.")
 
 
+data_files = [
+    (
+        'etc/jupyter/jupyter_notebook_config.d',
+        ['nbmelt.json'],
+    ),
+]
+
+
 setup_args = dict(
     name="nbmelt",
     version=__version__,
@@ -32,6 +40,7 @@ setup_args = dict(
     url='http://github.com/minrk/nbmelt',
     description="Shutdown notebooks that don't get used",
     long_description="",
+    data_files=data_files,
     license="BSD",
     cmdclass={
         'bdist_egg': bdist_egg if 'bdist_egg' in sys.argv else 'bdist_egg_disabled',
