@@ -18,7 +18,11 @@ from tornado.ioloop import IOLoop
 
 def load_jupyter_server_extension(app):
     """Load the extension"""
-    timeout = int(os.environ.get('NBMELT_TIMEOUT') or '120')
+    timeout_env = os.environ.get('NBMELT_TIMEOUT')
+    if not timeout_env:
+        app.log.info("NBMELT_TIMEOUT not set, not enabling timeout")
+        return
+    timeout = int(timeout_env)
     app.log.info("This notebook will self destruct if you don't use it in %s seconds!", timeout)
     state = {'called': False}
     save_initialize = APIHandler.initialize
