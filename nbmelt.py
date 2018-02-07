@@ -19,14 +19,14 @@ from tornado.ioloop import IOLoop
 def load_jupyter_server_extension(app):
     """Load the extension"""
     timeout = int(os.environ.get('NBMELT_TIMEOUT') or '120')
-    app.log.info("Setting nbmelt timeout to %s seconds", timeout)
+    app.log.info("This notebook will self destruct in %s seconds! (if you don't use it)", timeout)
     state = {'called': False}
     save_initialize = APIHandler.initialize
 
     # monkeypatch APIHandler.initialize
     # all we want to know is if one APIHandler was called one time
     def initialize(*args, **kwargs):
-        app.log.info("Received API request, aborting nbmelt")
+        app.log.debug("Received API request, halting nbmelt")
         state['called'] = True
         # only do this once:
         APIHandler.initialize = save_initialize
