@@ -40,6 +40,7 @@ setup_args = dict(
     url='http://github.com/minrk/nbmelt',
     description="Shutdown notebooks that don't get used",
     long_description="",
+    py_modules=['nbmelt'],
     data_files=data_files,
     license="BSD",
     cmdclass={
