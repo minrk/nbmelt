@@ -17,6 +17,6 @@ NBMELT_TIMEOUT=30 jupyter notebook
 [I 23:42:27.605 NotebookApp] The Jupyter Notebook is running at:
 [I 23:42:27.605 NotebookApp] http://localhost:8888/
 [I 23:42:27.605 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[E 23:42:57.600 NotebookApp] No API request received in 30s, exiting.
+[E 23:42:57.600 NotebookApp] No authenticated requests received in 30s, exiting.
 [I 23:42:57.601 NotebookApp] Shutting down 0 kernels
 ```
